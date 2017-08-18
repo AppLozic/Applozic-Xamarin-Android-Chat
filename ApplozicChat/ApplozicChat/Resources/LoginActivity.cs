@@ -6,8 +6,8 @@ using Android.OS;
 using Android.Widget;
 using Applozic;
 using Com.Applozic.Mobicomkit.Api.Account.Register;
+using Com.Applozic.Mobicomkit.Api.Account.User;
 using Com.Applozic.Mobicommons.People.Channel;
-using Android.Util;
 
 namespace ApplozicChat
 {
@@ -16,10 +16,10 @@ namespace ApplozicChat
     {
 
         private UserLoginListener loginListener;
-        private AddMemberListner addMemberListner;
-        ApplozicContactService contactService;
-        // String contactGroupId = "GroupName";        // Enable this and pass your GroupID here  
-        EditText userName;
+        //  AddMemberListner addMemberListner;            // Enable this for addmemberlistner
+        //  ApplozicContactService contactService;       // Enable this for ApplozicContactService class
+        //  String UserId;                              // Enable this for loggedInUserId
+        //  String contactGroupId = "GroupName";       // Enable this and pass your GroupID here  
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,14 +28,14 @@ namespace ApplozicChat
             loginListener = new UserLoginListener();
             loginListener.OnRegistrationSucessHandler += OnRegistrationSucessHandler;
             loginListener.OnRegistrationFailedHandler += OnRegistrationFailedHandler;
-            // AddMemberHandler();                    // Enable this method for its handler when adding members to contact group 
+            // AddMemberHandler();                                                       // Enable this method for its handler when adding members to contact group 
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.login_activity_layout);
 
             // Get our button from the layout resource,
             // and attach an event to it
-            userName = FindViewById<EditText>(Resource.Id.username_input);
+            EditText userName = FindViewById<EditText>(Resource.Id.username_input);
             EditText password = FindViewById<EditText>(Resource.Id.password_input);
             Button signIn = FindViewById<Button>(Resource.Id.sign_in_btn);
             ApplozicChatManager chatManager = new ApplozicChatManager(this);
@@ -64,11 +64,12 @@ namespace ApplozicChat
 
             // Enable  below commented code for adding member to contact group
 
-            /*  contactService = new ApplozicContactService(this);        
-               contactService.AddMemberToContactGroup(this, contactGroupId, (String)(Channel.GroupType.ContactGroup.Value), userName.Text, addMemberListner);
-               var applozicPref = Com.Applozic.Mobicomkit.Api.Account.User.MobiComUserPreference.GetInstance(context);
-               applozicPref.ContactsGroupId = contactGroupId;  */
-
+    /*      var applozicPref = MobiComUserPreference.GetInstance(context);
+            UserId = applozicPref.UserId;
+            contactService = new ApplozicContactService(this);        
+            applozicPref.ContactsGroupId = contactGroupId;
+            contactService.AddMemberToContactGroup(this, contactGroupId, (String)(Channel.GroupType.ContactGroup.Value), UserId, addMemberListner);   */
+            
             Intent myIntent = new Intent(this, typeof(MainActivity));
             this.StartActivity(myIntent);
             this.Finish();
@@ -92,18 +93,16 @@ namespace ApplozicChat
         {
 
             System.Console.WriteLine("Error while Adding Member:" + exception.Message);
-
-            Toast.MakeText(ApplicationContext, "Adding Failed : " + exception.Message, ToastLength.Long).Show();
         }
 
         // Enable below commented code for adding contact group handler
 
         /*    public void AddMemberHandler()
-            {
-                addMemberListner = new AddMemberListner();
-                addMemberListner.OnAddMemberSucessHandler += OnAddMemberSucessHandler;
-                addMemberListner.OnAddMemberFailedHandler += OnAddMemberFailedHandler;
-            } */
+                {
+                    addMemberListner = new AddMemberListner();
+                    addMemberListner.OnAddMemberSucessHandler += OnAddMemberSucessHandler;
+                    addMemberListner.OnAddMemberFailedHandler += OnAddMemberFailedHandler;
+                } */
     }
 
 }

@@ -60,8 +60,6 @@ namespace Applozic
 		 */
         public void LaunchChatList()
         {
-            //context.StartActivity(typeof(Com.Applozic.Mobicomkit.Uiwidgets.Conversation.Activity.ConversationActivity));
-            // Android.Util.Log.Debug("inside1", contactGroupId);
             Intent myIntent = new Intent(context, typeof(Com.Applozic.Mobicomkit.Uiwidgets.Conversation.Activity.ConversationActivity));
             context.StartActivity(myIntent);
         }
