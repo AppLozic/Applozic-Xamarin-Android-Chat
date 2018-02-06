@@ -1,12 +1,7 @@
 ﻿using Android.Content;
 using Com.Applozic.Mobicomkit.Uiwidgets.Async;
-using Com.Applozic.Mobicomkit.Api.Account.Register;
-using Com.Applozic.Mobicomkit.Api.Account.User;
 using System;
-
-using System.Collections;
 using System.Collections.Generic;
-using Android.Util;
 
 namespace ApplozicChat
 {
@@ -45,7 +40,6 @@ namespace ApplozicChat
         {
             //Send call back to caller
             
-
             if (OnAddMemberSucessHandler != null)
             {
                 OnAddMemberSucessHandler(res, context);
