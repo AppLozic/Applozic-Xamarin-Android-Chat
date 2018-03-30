@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.Content;
 using Java.Lang;
+using Com.Applozic.Mobicomkit.Kit;
 using Com.Applozic.Mobicomkit.Uiwidgets.Conversation;
 using Com.Applozic.Mobicomkit.Api.Account.Register;
 using Com.Applozic.Mobicomkit.Api.Account.User;
@@ -16,9 +17,9 @@ namespace Applozic
 
         }
         /*
-		 * Check if Applozic user is logged in already 
-		 * 
-		 */
+         * Check if Applozic user is logged in already 
+         * 
+         */
 
         public bool ISUserLoggedIn()
         {
@@ -28,7 +29,7 @@ namespace Applozic
         }
 
         /*
-		 */
+         */
 
         public void RegisterUser(string userId, string displayName, string password ,UserLoginListener userLoginListener)
         {
@@ -44,7 +45,7 @@ namespace Applozic
         }
 
         /*
-		 */
+         */
 
         public void RegisterUser(User applozicUser, UserLoginListener userLoginListener)
         {
@@ -55,9 +56,9 @@ namespace Applozic
         }
 
         /**
-		 * This is the example of shows
-		 * 
-		 */
+         * This is the example of shows
+         * 
+         */
         public void LaunchChatList()
         {
             //context.StartActivity(typeof(Com.Applozic.Mobicomkit.Uiwidgets.Conversation.Activity.ConversationActivity));
@@ -66,8 +67,8 @@ namespace Applozic
             context.StartActivity(myIntent);
         }
         /**
-		 * 
-		 */
+         * 
+         */
         public void LaunchChatWithUser(string receiverUserId)
         {
             Intent myIntent = new Intent(context, typeof(Com.Applozic.Mobicomkit.Uiwidgets.Conversation.Activity.ConversationActivity));
@@ -79,8 +80,8 @@ namespace Applozic
         }
 
         /**
-		 * 
-		 */
+         * 
+         */
         public void Logout( UserLogoutListener userLogoutListener )
         {
             Java.Lang.Void[] args = null;
@@ -89,12 +90,12 @@ namespace Applozic
         }
 
         /**
-		 * 
-		 */
+         * 
+         */
 
         public void SendRegistrationToServer(string token)
         {
-            Com.Applozic.Mobicomkit.Applozic.GetInstance(context).SetDeviceRegistrationId(token);
+            Com.Applozic.Mobicomkit.Kit.Applozic.GetInstance(context).SetDeviceRegistrationId(token);
             // Add custom implementation, as needed.
             var applozicPref = MobiComUserPreference.GetInstance(context);
             if (applozicPref.IsRegistered)
@@ -108,9 +109,9 @@ namespace Applozic
 
 
     /**
-	 * 
-	 * Class for initialising chat..
-	 */
+     * 
+     * Class for initialising chat..
+     */
     public class UserLoginListener : Java.Lang.Object, UserLoginTask.ITaskListener
     {
         public delegate void OnRegistrationSucess(RegistrationResponse res, Context context);
@@ -125,7 +126,7 @@ namespace Applozic
             System.Console.WriteLine("Successfully registered " + res.Message);
             PushNotificationListener PushRegisterListener = new PushNotificationListener();
             Java.Lang.Void[] args = null;
-            string deviceRegistartionId = Com.Applozic.Mobicomkit.Applozic.GetInstance(context).DeviceRegistrationId;
+            string deviceRegistartionId = Com.Applozic.Mobicomkit.Kit.Applozic.GetInstance(context).DeviceRegistrationId;
             if (!Android.Text.TextUtils.IsEmpty(deviceRegistartionId))
             {
                 new PushNotificationTask(deviceRegistartionId, PushRegisterListener, context).Execute(args);
@@ -156,9 +157,9 @@ namespace Applozic
 
 
     /**
-	 * 
-	 * Class for initialising chat..
-	 */
+     * 
+     * Class for initialising chat..
+     */
     public class UserLogoutListener : Java.Lang.Object,UserLogoutTask.ITaskListener
     {
         public delegate void OnLogoutSucess( Context context );
@@ -185,9 +186,9 @@ namespace Applozic
     }
 
     /**
-	 * 
-	 * Class for initialising chat..
-	 */
+     * 
+     * Class for initialising chat..
+     */
     public class PushNotificationListener : Java.Lang.Object, PushNotificationTask.ITaskListener
     {
 

@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{1D62B15F-C648-4336-93E2-D3E6C713258F}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="ApplozicChat/ApplozicChatManager.cs">
     <Files>
-      <File FileName="ApplozicChat/ApplozicChatManager.cs" Line="91" Column="12" />
-      <File FileName="../../../../../Library/Frameworks/Xamarin.Android.framework/Versions/8.2.0-15/lib/xamarin.android/xbuild/Xamarin/Android/Xamarin.Android.Common.targets" Line="2198" Column="13" />
-      <File FileName="ApplozicChat/Properties/AndroidManifest.xml" Line="110" Column="9" />
-      <File FileName="ApplozicChat/Resources/LoginActivity.cs" Line="86" Column="9" />
+      <File FileName="ApplozicChat/MainActivity.cs" Line="20" Column="50" />
+      <File FileName="ApplozicChat/ApplozicChatManager.cs" Line="123" Column="47" />
+      <File FileName="ApplozicChat/Resources/LoginActivity.cs" Line="1" Column="1" />
+      <File FileName="ApplozicChat/Properties/AndroidManifest.xml" Line="1" Column="1" />
+      <File FileName="ApplozicChat/Assets/applozic-settings.json" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -12,6 +13,6 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.ApplozicChat PreferredExecutionTarget="Android.LGH870DS8cac4828" />
+  <MonoDevelop.Ide.ItemProperties.ApplozicChat PreferredExecutionTarget="Android.Nexus_S_API_25" />
   <MultiItemStartupConfigurations />
 </Properties>
