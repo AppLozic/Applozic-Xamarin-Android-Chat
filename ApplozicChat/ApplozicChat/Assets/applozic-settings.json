@@ -84,6 +84,7 @@
   "groupInfoScreenVisible": true,
   "forwardOption": true,
   "recordButton": true,
+  "poweredByApplozic": false,
   "messageTemplate": {
     "isEnabled": false,
     "borderColor": "#FF03A9F4",
