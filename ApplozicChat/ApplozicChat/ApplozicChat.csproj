@@ -149,8 +149,8 @@
     <Reference Include="Xamarin.Android.Glide">
       <HintPath>..\packages\Xamarin.Android.Glide.4.0.0\lib\MonoAndroid70\Xamarin.Android.Glide.dll</HintPath>
     </Reference>
-    <Reference Include="ALMQTTProject">
-      <HintPath>..\..\lib-dll\ALMQTTProject.dll</HintPath>
+    <Reference Include="MQTT">
+      <HintPath>..\..\lib-dll\MQTT.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
